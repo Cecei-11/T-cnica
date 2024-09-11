@@ -1,0 +1,115 @@
+int INDICE = 13, SOMA = 0, K = 0;
+Enquanto K < INDICE faça {
+    K = K + 1;
+    SOMA = SOMA + K;
+}
+Imprimir(SOMA); 91
+
+def fibonacci_sequence(max_value):
+    """Gera a sequência de Fibonacci até o valor máximo especificado."""
+    sequence = []
+    a, b = 0, 1
+    while a <= max_value:
+        sequence.append(a)
+        a, b = b, a + b
+    return sequence
+
+def check_fibonacci(number):
+    """Verifica se o número pertence à sequência de Fibonacci."""
+    if number < 0:
+        return False
+    fib_sequence = fibonacci_sequence(number)
+    return number in fib_sequence
+
+def main():
+    try:
+        number = int(input("Digite um número para verificar se pertence à sequência de Fibonacci: "))
+        if check_fibonacci(number):
+            print(f"O número {number} pertence à sequência de Fibonacci.")
+        else:
+            print(f"O número {number} NÃO pertence à sequência de Fibonacci.")
+    except ValueError:
+        print("Por favor, insira um número inteiro válido.")
+
+if __name__ == "__main__":
+    main()
+
+def calcular_menor_maior_faturamento(faturamentos):
+    """Calcula o menor e o maior valor de faturamento do vetor."""
+    menor_faturamento = min(faturamentos)
+    maior_faturamento = max(faturamentos)
+    return menor_faturamento, maior_faturamento
+
+def calcular_media_mensal(faturamentos):
+    """Calcula a média mensal de faturamento."""
+    total_faturamento = sum(faturamentos)
+    numero_dias = len(faturamentos)
+    media_mensal = total_faturamento / numero_dias if numero_dias > 0 else 0
+    return media_mensal
+
+def contar_dias_acima_da_media(faturamentos):
+    """Conta o número de dias em que o faturamento diário foi superior à média mensal."""
+    media_mensal = calcular_media_mensal(faturamentos)
+    dias_acima_media = sum(1 for valor in faturamentos if valor > media_mensal)
+    return dias_acima_media
+
+def main():
+    # Exemplo de vetor com valores de faturamento diário
+    faturamentos = [1000, 2000, 1500, 3000, 2500, 4000, 500, 1200, 1300, 2000, 2500, 3000, 3500, 4000, 5000, 1000, 2000, 1500, 3000, 2500, 4000, 500, 1200, 1300, 2000, 2500, 3000, 3500, 4000, 5000, 1000, 2000, 1500, 3000, 2500, 4000, 500, 1200, 1300, 2000, 2500, 3000]
+
+    menor_faturamento, maior_faturamento = calcular_menor_maior_faturamento(faturamentos)
+    dias_acima_media = contar_dias_acima_da_media(faturamentos)
+
+    print(f"Menor valor de faturamento: {menor_faturamento}")
+    print(f"Maior valor de faturamento: {maior_faturamento}")
+    print(f"Número de dias com faturamento acima da média mensal: {dias_acima_media}")
+
+if __name__ == "__main__":
+    main()
+def calcular_participacao_percentual(faturamentos):
+    """Calcula a participação percentual de cada estado no faturamento total."""
+    total_faturamento = sum(faturamentos.values())
+    participacao_percentual = {estado: (valor / total_faturamento) * 100 for estado, valor in faturamentos.items()}
+    return participacao_percentual, total_faturamento
+
+def main():
+    # Faturamento mensal por estado
+    faturamentos = {
+        "SP": 67836.43,
+        "RJ": 36678.66,
+        "MG": 29229.88,
+        "ES": 27165.48,
+        "Outros": 19849.53
+    }
+
+    participacao_percentual, total_faturamento = calcular_participacao_percentual(faturamentos)
+
+    print(f"Faturamento total: R${total_faturamento:.2f}")
+    print("\nParticipação percentual de cada estado no faturamento total:")
+    for estado, percentual in participacao_percentual.items():
+        print(f"{estado}: {percentual:.2f}%")
+
+if __name__ == "__main__":
+    main()
+def inverter_string(s):
+    """Inverte os caracteres de uma string."""
+    string_invertida = ""
+    comprimento = len(s)
+    
+    # Adiciona os caracteres da string original em ordem reversa
+    for i in range(comprimento - 1, -1, -1):
+        string_invertida += s[i]
+    
+    return string_invertida
+
+def main():
+    # Exemplo de string, pode ser modificada ou recebida como entrada
+    string_original = input("Digite uma string para inverter: ")
+    string_invertida = inverter_string(string_original)
+    
+    print(f"String original: {string_original}")
+    print(f"String invertida: {string_invertida}")
+
+if __name__ == "__main__":
+    main()
+
